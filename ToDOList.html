@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDOList</title>
+    <style>
+        body {
+            background-image: url(https://c8.alamy.com/comp/M4WB3G/to-do-list-seamless-pattern-background-business-flat-vector-illustration-M4WB3G.jpg);
+        }
+        #o {
+            color: black;
+            text-align: center;
+            margin: 16px;
+            padding: 8px;
+            background-color: rgba(0, 0, 0, 0.272);
+            box-shadow: 2px 2px 5px rgba(0,0,0,.7);
+            border: none;
+            border-radius: 25px;
+        }
+        #t {
+            text-align: center;
+            margin: 24px;
+            padding: 24px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.674);
+            box-shadow: 2px 2px 5px rgba(0,0,0,.7);
+            border: none;
+            border-radius: 25px;
+        }
+        li {
+            list-style: none;
+            margin: 10px;
+        }
+        button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="o">To DO List</h1>
+    <div id="t">
+        <input type="text" id="one">
+        <button onclick="add()" style="font-style: oblique;">Add</button>
+        <ul id="two"></ul>
+    </div>
+
+    <script>
+        var input = document.getElementById("one");
+        var list = document.getElementById("two");
+
+        function add() {
+            if (input.value.trim() === "") {
+                alert("Please enter a task.");
+                return;
+            }
+            var li = document.createElement("li");
+            li.innerHTML = input.value + " <button onclick='delete1(event)'>Delete</button>";
+            list.appendChild(li);
+            input.value = "";
+        }
+
+        function delete1(event) {
+            event.target.parentElement.remove();
+        }
+    </script>
+</body>
+</html>
